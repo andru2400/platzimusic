@@ -13,12 +13,20 @@
 </template>
 
 <script>
+import getArtists from './api'
 export default {
   name: 'app',
   data () {
     return {
       artists: []
     }
+  },
+  mounted: function(){
+    const self = this
+    getArtists()
+      .then(function (artists){
+        self.artists = artists
+      })
   }
 }
 </script>
